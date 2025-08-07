@@ -187,7 +187,10 @@ def api_request(sys_prompt, user_prompt, temperature=0.0) -> None:
     if policy_model.startswith("meta-llama/") or policy_model.startswith("Qwen/"):
         client = OpenAI(base_url="http://127.0.0.1:8000/v1", api_key="EMPTY")
     else:
-        client = OpenAI()
+        client = OpenAI(
+            api_key=os.getenv("ZHIZENGZENG_API_KEY"),
+            base_url="https://api.zhizengzeng.com/v1",
+        )
     if policy_model.startswith("o1") or policy_model.startswith("o3"):
         chat_completion = client.chat.completions.create(
             messages=[

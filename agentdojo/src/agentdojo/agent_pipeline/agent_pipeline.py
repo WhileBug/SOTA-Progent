@@ -76,6 +76,12 @@ def get_llm(provider: str, model: str) -> BasePipelineElement:
     elif provider == "google":
         vertexai.init(project=os.getenv("GCP_PROJECT"), location=os.getenv("GCP_LOCATION"))
         llm = GoogleLLM(model)
+    elif provider == "zhizengzeng":
+        client = openai.OpenAI(
+            api_key=os.getenv("ZHIZENGZENG_API_KEY"),
+            base_url="https://api.zhizengzeng.com/v1",
+        )
+        llm = OpenAILLM(client, model)
     else:
         raise ValueError("Invalid provider")
     return llm

@@ -52,7 +52,7 @@ class ModelsEnum(StrEnum):
 MODEL_PROVIDERS = {
     ModelsEnum.GPT_4O_2024_05_13: "openai",
     ModelsEnum.GPT_4O_2024_08_06: "openai",
-    ModelsEnum.O3_MINI:"openai",
+    ModelsEnum.O3_MINI:"zhizengzeng",
     ModelsEnum.GPT_4O_MINI_2024_07_18: "openai",
     ModelsEnum.GPT_3_5_TURBO_0125: "openai",
     ModelsEnum.GPT_4_0125_PREVIEW: "openai",
